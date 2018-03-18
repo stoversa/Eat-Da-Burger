@@ -8,13 +8,12 @@ router.get("/", (req, res) => {
         const hbsObject = {
             burger: data
         };
-        res.json(hbsObject);
-        //res.render("index", hbsObject);
+        res.render("index", hbsObject);
     });
 });
 
 router.post("/api/burgers", (req, res) => {
-    burger.create(req.body.value, function (result) {
+    burger.create(req.body.name, function (result) {
         res.json({ id: result.insertId }); // Send back the ID of the new quote
         });
 });
